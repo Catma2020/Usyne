@@ -16,7 +16,7 @@
   "license": "",
   "icon": "assets/usyne/icon.png",
 
-  "environment": "Visual Studio 2019 Community",
+  "environment": "*",
   "entrypoints": {
     "main": [
       "net.fabricmc.usyne.Usyne"
