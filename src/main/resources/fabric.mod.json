@@ -1,29 +1,29 @@
 {
   "schemaVersion": 1,
-  "id": "modid",
+  "id": "usyne",
   "version": "${version}",
 
-  "name": "Example Mod",
-  "description": "This is an example description! Tell everyone what your mod is about!",
+  "name": "Usyne",
+  "description": "Placeholder Description",
   "authors": [
-    "Me!"
+    "Catma2020"
   ],
   "contact": {
     "homepage": "https://fabricmc.net/",
-    "sources": "https://github.com/FabricMC/fabric-example-mod"
+    "sources": "https://github.com/Catma2020/Usyne"
   },
 
-  "license": "CC0-1.0",
-  "icon": "assets/modid/icon.png",
+  "license": "",
+  "icon": "assets/usyne/icon.png",
 
-  "environment": "*",
+  "environment": "Visual Studio 2019 Community",
   "entrypoints": {
     "main": [
-      "net.fabricmc.example.ExampleMod"
+      "net.fabricmc.usyne.Usyne"
     ]
   },
   "mixins": [
-    "modid.mixins.json"
+    "usyne.mixins.json"
   ],
 
   "depends": {
