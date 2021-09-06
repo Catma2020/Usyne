@@ -19,7 +19,11 @@
   "environment": "*",
   "entrypoints": {
     "main": [
-      "net.catma2020.Usyne.Usyne"
+      "net.catma2020.Usyne.Usyne",
+      "net.catma2020.Usyne.Registries.EntityRegistry"
+    ],
+    "client": [
+      "net.catma2020.Usyne.Registries.EntityRendererReg"
     ]
   },
   "mixins": [

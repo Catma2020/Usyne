@@ -5,8 +5,6 @@ import net.fabricmc.api.ModInitializer;
 public class Usyne implements ModInitializer
 {
 
-
-
 	@Override
 	public void onInitialize()
 	{
@@ -16,8 +14,6 @@ public class Usyne implements ModInitializer
 		// Proceed with mild caution.
 
 		System.out.println("Hello Fabric world! This is the mod Usyne by Catma2020!");
-
-		
 
 	}
 
