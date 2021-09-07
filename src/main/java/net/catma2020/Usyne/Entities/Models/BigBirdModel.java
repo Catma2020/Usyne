@@ -19,6 +19,7 @@ public class BigBirdModel extends EntityModel<BigBird>
 
 	private final ModelPart root;
 	private final ModelPart body1;
+	private final ModelPart neck;
 	/*private final ModelPart body2;
 	private final ModelPart body3;
 	private final ModelPart head;
@@ -39,6 +40,7 @@ public class BigBirdModel extends EntityModel<BigBird>
 
         this.root = root;
 		this.body1 = root.getChild("body1");
+		this.neck = root.getChild(EntityModelPartNames.NECK);
 		/*this.body2 = root.getChild("body2");
 		this.body3 = root.getChild("body3");
 		this.head = root.getChild(EntityModelPartNames.HEAD);
@@ -61,10 +63,11 @@ public class BigBirdModel extends EntityModel<BigBird>
 		ModelPartData modelPartData = modelData.getRoot();
 			//cuboid offset (-from x edge, -from y edge "bottom", -from z edge)
 			//18 px of height, 20 px wide, and 20 px long
-			//leaves 20 px below and 14 above, leaves 4 px on left and 4 on right, leaves 4 px in front and 40 px behind
 		modelPartData.addChild("body1", ModelPartBuilder.create().uv(0, 0).cuboid(-10.0f, -14.0f, -28.0f, 20.0f, 18.0f, 20.0f), ModelTransform.pivot(0.0f, 0.0f, 0.0f));
+			//6 px of height, 12 px wide, and 14 px long
+		modelPartData.addChild(EntityModelPartNames.NECK, ModelPartBuilder.create().uv(0, 40).cuboid(-6.0f, -20.0f, -32.0f, 12.0f, 6.0f, 14.0f), ModelTransform.pivot(0.0f, 0.0f, 0.0f));
 		
-		return TexturedModelData.of(modelData, 128, 64);
+		return TexturedModelData.of(modelData, 128, 128);
 		
 	}
 
