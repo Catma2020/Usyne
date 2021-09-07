@@ -18,7 +18,8 @@ public class EntityRegistry implements ModInitializer
 
         Registry.ENTITY_TYPE,
         new Identifier("usyne", "bigbird"),
-        FabricEntityTypeBuilder.create(SpawnGroup.CREATURE, BigBird::new).dimensions(EntityDimensions.fixed(0.5f * 5.0f, 0.9f * 5.0f)).build()
+            //Each bird, of which there are 5 variants, is 3.25 blocks tall, 1.75 blocks wide, and 4 blocks long.
+        FabricEntityTypeBuilder.create(SpawnGroup.CREATURE, BigBird::new).dimensions(EntityDimensions.fixed(4.0f, 3.25f)).build()
 
     );
 
