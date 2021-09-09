@@ -13,7 +13,7 @@ public class BigBirdRenderer extends MobEntityRenderer<BigBird, BigBirdModel>
     public BigBirdRenderer(EntityRendererFactory.Context context)
     {
                                                                                                 //shadow size
-        super(context, new BigBirdModel(context.getPart(EntityRendererReg.MODEL_BIGBIRD_LAYER)), 3.0f);
+        super(context, new BigBirdModel(context.getPart(EntityRendererReg.MODEL_BIGBIRD_LAYER)), 0.2f);
 
     }
 
@@ -21,7 +21,7 @@ public class BigBirdRenderer extends MobEntityRenderer<BigBird, BigBirdModel>
     public Identifier getTexture(BigBird entity)
     {
 
-        return new Identifier("usyne", "textures/entity/bigbird/bigbird1.png");
+        return new Identifier("usyne", "textures/entity/bigbird/raven.png");
 
     }
 

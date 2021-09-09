@@ -1,100 +1,110 @@
 package net.catma2020.Usyne.Entities.Models;
 
-import com.google.common.collect.ImmutableList;
-
 import net.catma2020.Usyne.Entities.BigBird;
-import net.minecraft.client.model.ModelData;
 import net.minecraft.client.model.ModelPart;
-import net.minecraft.client.model.ModelPartBuilder;
 import net.minecraft.client.model.ModelPartData;
-import net.minecraft.client.model.ModelTransform;
-import net.minecraft.client.model.TexturedModelData;
 import net.minecraft.client.render.VertexConsumer;
 import net.minecraft.client.render.entity.model.EntityModel;
-import net.minecraft.client.render.entity.model.EntityModelPartNames;
 import net.minecraft.client.util.math.MatrixStack;
 
 public class BigBirdModel extends EntityModel<BigBird>
 {
 
 	private final ModelPart root;
-	private final ModelPart body1;
-	private final ModelPart neck;
-	/*private final ModelPart body2;
-	private final ModelPart body3;
-	private final ModelPart head;
-	private final ModelPart beak;
-	private final ModelPart leftWing;
-	private final ModelPart rightWing;
-	private final ModelPart headFeathers;
-	private final ModelPart leftLeg;
-	private final ModelPart rightLeg;
-	private final ModelPart leftFoot;
-	private final ModelPart rightFoot;
-	private final ModelPart tailFeathers;*/
+	private final ModelPart rightFootToe3_r1;
+	private final ModelPart rightFootToe1_r1;
+	private final ModelPart rightWing_r1;
+	private final ModelPart topBeak_r1;
+	private final ModelPart head_r1;
+	private final ModelPart frontBody_r1;
+	private final ModelPart rightLeg_r1;
 
-
-    //This next part is directly from the Minecraft code for Parrots
-    public BigBirdModel(ModelPart root)
-    {
-
-        this.root = root;
-		this.body1 = root.getChild("body1");
-		this.neck = root.getChild(EntityModelPartNames.NECK);
-		/*this.body2 = root.getChild("body2");
-		this.body3 = root.getChild("body3");
-		this.head = root.getChild(EntityModelPartNames.HEAD);
-		this.beak = root.getChild(EntityModelPartNames.BEAK);
-		this.leftWing = root.getChild(EntityModelPartNames.LEFT_WING);
-		this.rightWing = root.getChild(EntityModelPartNames.RIGHT_WING);
-		this.headFeathers = this.head.getChild("headfeathers");
-		this.leftLeg = root.getChild(EntityModelPartNames.LEFT_LEG);
-		this.rightLeg = root.getChild(EntityModelPartNames.RIGHT_LEG);
-		this.leftFoot = root.getChild(EntityModelPartNames.LEFT_FRONT_FOOT);
-		this.rightFoot = root.getChild(EntityModelPartNames.RIGHT_FRONT_FOOT);
-		this.tailFeathers = this.body1.getChild("tailFeathers");*/
-
-    }
-
-    public static TexturedModelData getTexturedModelData()
+	public BigBirdModel()
 	{
 
-		ModelData modelData = new ModelData();
-		ModelPartData modelPartData = modelData.getRoot();
-			//cuboid offset (-from x edge, -from y edge "bottom", -from z edge)
-			//18 px of height, 20 px wide, and 20 px long
-		modelPartData.addChild("body1", ModelPartBuilder.create().uv(0, 0).cuboid(-10.0f, -14.0f, -28.0f, 20.0f, 18.0f, 20.0f), ModelTransform.pivot(0.0f, 0.0f, 0.0f));
-			//6 px of height, 12 px wide, and 14 px long
-		modelPartData.addChild(EntityModelPartNames.NECK, ModelPartBuilder.create().uv(0, 40).cuboid(-6.0f, -20.0f, -32.0f, 12.0f, 6.0f, 14.0f), ModelTransform.pivot(0.0f, 0.0f, 0.0f));
-		
-		return TexturedModelData.of(modelData, 128, 128);
-		
-	}
+		textureWidth = 16;
+		textureHeight = 16;
+		root = new ModelPart(this);
+		root.setPivot(0.0F, 24.0F, 0.0F);
+		root.setTextureOffset(0, 0).addCuboid(2.0F, -2.0F, 2.0F, 5.0F, 2.0F, 5.0F, 0.0F, false);
+		root.setTextureOffset(0, 0).addCuboid(3.0F, -18.0F, 3.0F, 3.0F, 16.0F, 3.0F, 0.0F, false);
+		root.setTextureOffset(0, 0).addCuboid(-10.0F, -62.0F, -31.0F, 18.0F, 31.0F, 18.0F, 0.0F, false);
+		root.setTextureOffset(0, 0).addCuboid(-5.0F, -62.0F, -35.0F, 10.0F, 3.0F, -9.0F, 0.0F, false);
+		root.setTextureOffset(0, 0).addCuboid(3.0F, -2.0F, -5.0F, 3.0F, 2.0F, 7.0F, 0.0F, false);
+		root.setTextureOffset(0, 0).addCuboid(3.0F, -2.0F, 6.0F, 3.0F, 2.0F, 5.0F, 0.0F, false);
+		root.setTextureOffset(0, 0).addCuboid(-7.0F, -2.0F, -11.0F, 5.0F, 2.0F, 5.0F, 0.0F, false);
+		root.setTextureOffset(0, 0).addCuboid(-6.0F, -2.0F, -17.0F, 3.0F, 2.0F, 7.0F, 0.0F, false);
+		root.setTextureOffset(0, 0).addCuboid(-6.0F, -2.0F, -7.0F, 3.0F, 2.0F, 5.0F, 0.0F, false);
 
-	public ModelPart getPart()
-	{
+		rightFootToe3_r1 = new ModelPart(this);
+		rightFootToe3_r1.setPivot(0.0F, 0.0F, 0.0F);
+		root.addChild(rightFootToe3_r1);
+		setRotationAngle(rightFootToe3_r1, 0.0F, -0.2618F, 0.0F);
+		rightFootToe3_r1.setTextureOffset(0, 0).addCuboid(-6.0F, -2.0F, -15.0F, 2.0F, 2.0F, 8.0F, 0.0F, false);
+		rightFootToe3_r1.setTextureOffset(0, 0).addCuboid(6.0F, -2.0F, -5.0F, 2.0F, 2.0F, 8.0F, 0.0F, false);
 
-		return this.root;
-	
+		rightFootToe1_r1 = new ModelPart(this);
+		rightFootToe1_r1.setPivot(0.0F, 0.0F, 0.0F);
+		root.addChild(rightFootToe1_r1);
+		setRotationAngle(rightFootToe1_r1, 0.0F, 0.3491F, 0.0F);
+		rightFootToe1_r1.setTextureOffset(0, 0).addCuboid(-4.0F, -2.0F, -17.0F, 2.0F, 2.0F, 8.0F, 0.0F, false);
+		rightFootToe1_r1.setTextureOffset(0, 0).addCuboid(1.0F, -2.0F, -2.0F, 2.0F, 2.0F, 8.0F, 0.0F, false);
+
+		rightWing_r1 = new ModelPart(this);
+		rightWing_r1.setPivot(0.0F, 0.0F, 0.0F);
+		root.addChild(rightWing_r1);
+		setRotationAngle(rightWing_r1, -0.1309F, 0.0F, 0.0F);
+		rightWing_r1.setTextureOffset(0, 0).addCuboid(-16.0F, -50.0F, -27.0F, 4.0F, 30.0F, 80.0F, 0.0F, false);
+		rightWing_r1.setTextureOffset(0, 0).addCuboid(12.0F, -50.0F, -27.0F, 4.0F, 30.0F, 80.0F, 0.0F, false);
+		rightWing_r1.setTextureOffset(0, 0).addCuboid(-6.0F, -39.0F, 23.0F, 12.0F, 21.0F, 27.0F, 0.0F, false);
+		rightWing_r1.setTextureOffset(0, 0).addCuboid(-10.0F, -49.0F, -2.0F, 20.0F, 31.0F, 25.0F, 0.0F, false);
+
+		topBeak_r1 = new ModelPart(this);
+		topBeak_r1.setPivot(0.0F, 0.0F, 0.0F);
+		root.addChild(topBeak_r1);
+		setRotationAngle(topBeak_r1, 0.2182F, 0.0F, 0.0F);
+		topBeak_r1.setTextureOffset(0, 0).addCuboid(-7.0F, -71.0F, -17.0F, 14.0F, 2.0F, -14.0F, 0.0F, false);
+
+		head_r1 = new ModelPart(this);
+		head_r1.setPivot(0.0F, 0.0F, 0.0F);
+		root.addChild(head_r1);
+		setRotationAngle(head_r1, 0.0873F, 0.0F, 0.0F);
+		head_r1.setTextureOffset(0, 0).addCuboid(-9.0F, -77.0F, -30.0F, 18.0F, 15.0F, 22.0F, 0.0F, false);
+
+		frontBody_r1 = new ModelPart(this);
+		frontBody_r1.setPivot(0.0F, 0.0F, 0.0F);
+		root.addChild(frontBody_r1);
+		setRotationAngle(frontBody_r1, -0.0436F, 0.0F, 0.0F);
+		frontBody_r1.setTextureOffset(0, 0).addCuboid(-12.0F, -54.0F, -29.0F, 24.0F, 35.0F, 32.0F, 0.0F, false);
+
+		rightLeg_r1 = new ModelPart(this);
+		rightLeg_r1.setPivot(0.0F, 0.0F, 0.0F);
+		root.addChild(rightLeg_r1);
+		setRotationAngle(rightLeg_r1, -0.2618F, 0.0F, 0.0F);
+		rightLeg_r1.setTextureOffset(0, 0).addCuboid(-6.0F, -17.0F, -10.0F, 3.0F, 18.0F, 3.0F, 0.0F, false);
+
 	}
 
 	@Override
-    public void setAngles(BigBird bigbird, float limbAngle, float limbDistance, float animationProgress, float headYaw, float headPitch)
+	public void setAngles(Entity entity, float limbSwing, float limbSwingAmount, float ageInTicks, float netHeadYaw, float headPitch)
+	{
+			//previously the render function, render code was moved to a method below
+	}
+
+	@Override
+	public void render(MatrixStack matrixStack, VertexConsumer	buffer, int packedLight, int packedOverlay, float red, float green, float blue, float alpha)
+	{
+			
+			root.render(matrixStack, buffer, packedLight, packedOverlay);
+
+	}
+	public void setRotationAngle(ModelPart bone, float x, float y, float z)
 	{
 
-    }
- 
-    @Override
-    public void render(MatrixStack matrices, VertexConsumer vertices, int light, int overlay, float red, float green, float blue, float alpha)
-	{
+			bone.pitch = x;
+			bone.yaw = y;
+			bone.roll = z;
 
-        ImmutableList.of(this.root).forEach((modelRenderer) ->
-		{
-
-            modelRenderer.render(matrices, vertices, light, overlay, red, green, blue, alpha);
-
-        });
-
-    }
-
+	}
+	
 }
