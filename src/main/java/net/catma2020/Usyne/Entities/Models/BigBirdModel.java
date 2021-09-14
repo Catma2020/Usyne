@@ -1,110 +1,125 @@
 package net.catma2020.Usyne.Entities.Models;
 
+import com.google.common.collect.ImmutableList;
 import net.catma2020.Usyne.Entities.BigBird;
+import net.minecraft.client.model.ModelData;
 import net.minecraft.client.model.ModelPart;
+import net.minecraft.client.model.ModelPartBuilder;
 import net.minecraft.client.model.ModelPartData;
+import net.minecraft.client.model.ModelTransform;
+import net.minecraft.client.model.TexturedModelData;
 import net.minecraft.client.render.VertexConsumer;
 import net.minecraft.client.render.entity.model.EntityModel;
+import net.minecraft.client.render.entity.model.EntityModelPartNames;
 import net.minecraft.client.util.math.MatrixStack;
 
 public class BigBirdModel extends EntityModel<BigBird>
 {
 
 	private final ModelPart root;
-	private final ModelPart rightFootToe3_r1;
-	private final ModelPart rightFootToe1_r1;
-	private final ModelPart rightWing_r1;
-	private final ModelPart topBeak_r1;
-	private final ModelPart head_r1;
-	private final ModelPart frontBody_r1;
-	private final ModelPart rightLeg_r1;
+	private final ModelPart head;
+	private final ModelPart topBeak;
+	private final ModelPart bottomBeak;
+	private final ModelPart neck;
+	private final ModelPart frontBody;
+	private final ModelPart middleBody;
+	private final ModelPart backBody;
+	private final ModelPart leftLeg;
+	private final ModelPart rightLeg;
+	private final ModelPart leftWing;
+	private final ModelPart rightWing;
+	private final ModelPart leftFoot;
+	private final ModelPart rightFoot;
+	private final ModelPart leftToe1;
+	private final ModelPart leftToe2;
+	private final ModelPart leftToe3;
+	private final ModelPart leftToe4;
+	private final ModelPart rightToe1;
+	private final ModelPart rightToe2;
+	private final ModelPart rightToe3;
+	private final ModelPart rightToe4;
 
-	public BigBirdModel()
+	public BigBirdModel(ModelPart root)
 	{
 
-		textureWidth = 16;
-		textureHeight = 16;
-		root = new ModelPart(this);
-		root.setPivot(0.0F, 24.0F, 0.0F);
-		root.setTextureOffset(0, 0).addCuboid(2.0F, -2.0F, 2.0F, 5.0F, 2.0F, 5.0F, 0.0F, false);
-		root.setTextureOffset(0, 0).addCuboid(3.0F, -18.0F, 3.0F, 3.0F, 16.0F, 3.0F, 0.0F, false);
-		root.setTextureOffset(0, 0).addCuboid(-10.0F, -62.0F, -31.0F, 18.0F, 31.0F, 18.0F, 0.0F, false);
-		root.setTextureOffset(0, 0).addCuboid(-5.0F, -62.0F, -35.0F, 10.0F, 3.0F, -9.0F, 0.0F, false);
-		root.setTextureOffset(0, 0).addCuboid(3.0F, -2.0F, -5.0F, 3.0F, 2.0F, 7.0F, 0.0F, false);
-		root.setTextureOffset(0, 0).addCuboid(3.0F, -2.0F, 6.0F, 3.0F, 2.0F, 5.0F, 0.0F, false);
-		root.setTextureOffset(0, 0).addCuboid(-7.0F, -2.0F, -11.0F, 5.0F, 2.0F, 5.0F, 0.0F, false);
-		root.setTextureOffset(0, 0).addCuboid(-6.0F, -2.0F, -17.0F, 3.0F, 2.0F, 7.0F, 0.0F, false);
-		root.setTextureOffset(0, 0).addCuboid(-6.0F, -2.0F, -7.0F, 3.0F, 2.0F, 5.0F, 0.0F, false);
-
-		rightFootToe3_r1 = new ModelPart(this);
-		rightFootToe3_r1.setPivot(0.0F, 0.0F, 0.0F);
-		root.addChild(rightFootToe3_r1);
-		setRotationAngle(rightFootToe3_r1, 0.0F, -0.2618F, 0.0F);
-		rightFootToe3_r1.setTextureOffset(0, 0).addCuboid(-6.0F, -2.0F, -15.0F, 2.0F, 2.0F, 8.0F, 0.0F, false);
-		rightFootToe3_r1.setTextureOffset(0, 0).addCuboid(6.0F, -2.0F, -5.0F, 2.0F, 2.0F, 8.0F, 0.0F, false);
-
-		rightFootToe1_r1 = new ModelPart(this);
-		rightFootToe1_r1.setPivot(0.0F, 0.0F, 0.0F);
-		root.addChild(rightFootToe1_r1);
-		setRotationAngle(rightFootToe1_r1, 0.0F, 0.3491F, 0.0F);
-		rightFootToe1_r1.setTextureOffset(0, 0).addCuboid(-4.0F, -2.0F, -17.0F, 2.0F, 2.0F, 8.0F, 0.0F, false);
-		rightFootToe1_r1.setTextureOffset(0, 0).addCuboid(1.0F, -2.0F, -2.0F, 2.0F, 2.0F, 8.0F, 0.0F, false);
-
-		rightWing_r1 = new ModelPart(this);
-		rightWing_r1.setPivot(0.0F, 0.0F, 0.0F);
-		root.addChild(rightWing_r1);
-		setRotationAngle(rightWing_r1, -0.1309F, 0.0F, 0.0F);
-		rightWing_r1.setTextureOffset(0, 0).addCuboid(-16.0F, -50.0F, -27.0F, 4.0F, 30.0F, 80.0F, 0.0F, false);
-		rightWing_r1.setTextureOffset(0, 0).addCuboid(12.0F, -50.0F, -27.0F, 4.0F, 30.0F, 80.0F, 0.0F, false);
-		rightWing_r1.setTextureOffset(0, 0).addCuboid(-6.0F, -39.0F, 23.0F, 12.0F, 21.0F, 27.0F, 0.0F, false);
-		rightWing_r1.setTextureOffset(0, 0).addCuboid(-10.0F, -49.0F, -2.0F, 20.0F, 31.0F, 25.0F, 0.0F, false);
-
-		topBeak_r1 = new ModelPart(this);
-		topBeak_r1.setPivot(0.0F, 0.0F, 0.0F);
-		root.addChild(topBeak_r1);
-		setRotationAngle(topBeak_r1, 0.2182F, 0.0F, 0.0F);
-		topBeak_r1.setTextureOffset(0, 0).addCuboid(-7.0F, -71.0F, -17.0F, 14.0F, 2.0F, -14.0F, 0.0F, false);
-
-		head_r1 = new ModelPart(this);
-		head_r1.setPivot(0.0F, 0.0F, 0.0F);
-		root.addChild(head_r1);
-		setRotationAngle(head_r1, 0.0873F, 0.0F, 0.0F);
-		head_r1.setTextureOffset(0, 0).addCuboid(-9.0F, -77.0F, -30.0F, 18.0F, 15.0F, 22.0F, 0.0F, false);
-
-		frontBody_r1 = new ModelPart(this);
-		frontBody_r1.setPivot(0.0F, 0.0F, 0.0F);
-		root.addChild(frontBody_r1);
-		setRotationAngle(frontBody_r1, -0.0436F, 0.0F, 0.0F);
-		frontBody_r1.setTextureOffset(0, 0).addCuboid(-12.0F, -54.0F, -29.0F, 24.0F, 35.0F, 32.0F, 0.0F, false);
-
-		rightLeg_r1 = new ModelPart(this);
-		rightLeg_r1.setPivot(0.0F, 0.0F, 0.0F);
-		root.addChild(rightLeg_r1);
-		setRotationAngle(rightLeg_r1, -0.2618F, 0.0F, 0.0F);
-		rightLeg_r1.setTextureOffset(0, 0).addCuboid(-6.0F, -17.0F, -10.0F, 3.0F, 18.0F, 3.0F, 0.0F, false);
+		this.root = root;
+		this.head = root.getChild(EntityModelPartNames.HEAD);
+		this.topBeak = root.getChild("TOPBEAK");
+		this.bottomBeak = root.getChild("BOTTOMBEAK");
+		this.neck = root.getChild(EntityModelPartNames.NECK);
+		this.frontBody = root.getChild("FRONTBODY");
+		this.middleBody = root.getChild("MIDDLEBODY");
+		this.backBody = root.getChild("BACKBODY");
+		this.leftLeg = root.getChild(EntityModelPartNames.LEFT_LEG);
+		this.rightLeg = root.getChild(EntityModelPartNames.RIGHT_LEG);
+		this.leftWing = root.getChild(EntityModelPartNames.LEFT_WING);
+		this.rightWing = root.getChild(EntityModelPartNames.RIGHT_WING);
+		this.leftFoot = root.getChild(EntityModelPartNames.LEFT_HIND_FOOT);
+		this.rightFoot = root.getChild(EntityModelPartNames.RIGHT_HIND_FOOT);
+		this.leftToe1 = root.getChild("LEFTTOE1");
+		this.leftToe2 = root.getChild("LEFTTOE2");
+		this.leftToe3 = root.getChild("LEFTTOE3");
+		this.leftToe4 = root.getChild("LEFTTOE4");
+		this.rightToe1 = root.getChild("RIGHTTOE1");
+		this.rightToe2 = root.getChild("RIGHTTOE2");
+		this.rightToe3 = root.getChild("RIGHTTOE3");
+		this.rightToe4 = root.getChild("RIGHTTOE4");
 
 	}
+
+	public static TexturedModelData getTexturedModelData()
+	{
+
+		ModelData modelData = new ModelData();
+		ModelPartData modelPartData = modelData.getRoot();
+
+		int uv = 0;
+
+		modelPartData.addChild(EntityModelPartNames.HEAD, ModelPartBuilder.create().uv(0, 0).cuboid(-9.0f, -77.0f, -30.0f, 18.0f, 15.0f, 22.0f), ModelTransform.of(0.0f, 24.0f, 0.0f, 0.0873f, 0.0f, 0.0f));
+		modelPartData.addChild("TOPBEAK", ModelPartBuilder.create().uv(0, ++uv*128).cuboid(-7.0f, -71.0f, -17.0f, 14.0f, 2.0f, -14.0f), ModelTransform.of(0.0f, 24.0f, 0.0f, 0.2182f, 0.0f, 0.0f));
+		modelPartData.addChild("BOTTOMBEAK", ModelPartBuilder.create().uv(0, ++uv*128).cuboid(-5.0f, -62.0f, -35.0f, 10.0f, 3.0f, -9.0f), ModelTransform.of(0.0f, 24.0f, 0.0f, 0.0f, 0.0f, 0.0f));
+		modelPartData.addChild(EntityModelPartNames.NECK, ModelPartBuilder.create().uv(0, ++uv*128).cuboid(-9.0f, -62.0f, -31.0f, 18.0f, 31.0f, 18.0f), ModelTransform.of(0.0f, 24.0f, 0.0f, 0.0f, 0.0f, 0.0f));
+		modelPartData.addChild("FRONTBODY", ModelPartBuilder.create().uv(0, ++uv*128).cuboid(-12.0f, -54.0f, -29.0f, 24.0f, 35.0f, 32.0f), ModelTransform.of(0.0f, 24.0f, 0.0f, -0.0436f, 0.0f, 0.0f));
+		modelPartData.addChild("MIDDLEBODY", ModelPartBuilder.create().uv(0, ++uv*128).cuboid(-10.0f, -49.0f, -2.0f, 20.0f, 31.0f, 25.0f), ModelTransform.of(0.0f, 24.0f, 0.0f, -0.1309f, 0.0f, 0.0f));
+		modelPartData.addChild("BACKBODY", ModelPartBuilder.create().uv(0, ++uv*128).cuboid(-6.0f, -39.0f, 23.0f, 12.0f, 21.0f, 27.0f), ModelTransform.of(0.0f, 24.0f, 0.0f, -0.1309f, 0.0f, 0.0f));
+		modelPartData.addChild(EntityModelPartNames.LEFT_LEG, ModelPartBuilder.create().uv(0, ++uv*128).cuboid(3.0f, -18.0f, 3.0f, 3.0f, 16.0f, 3.0f), ModelTransform.of(0.0f, 24.0f, 0.0f, 0.0f, 0.0f, 0.0f));
+		modelPartData.addChild(EntityModelPartNames.RIGHT_LEG, ModelPartBuilder.create().uv(0, ++uv*128).cuboid(-6.0f, -17.0f, -10.0f, 3.0f, 18.0f, 3.0f), ModelTransform.of(0.0f, 24.0f, 0.0f, -0.2618f, 0.0f, 0.0f));
+		modelPartData.addChild(EntityModelPartNames.LEFT_WING, ModelPartBuilder.create().uv(0, ++uv*128).cuboid(12.0f, -50.0f, -27.0f, 4.0f, 30.0f, 80.0f), ModelTransform.of(0.0f, 24.0f, 0.0f, -0.1309f, 0.0f, 0.0f));
+		modelPartData.addChild(EntityModelPartNames.RIGHT_WING, ModelPartBuilder.create().uv(0, ++uv*128).cuboid(-16.0f, -50.0f, -27.0f, 4.0f, 30.0f, 80.0f), ModelTransform.of(0.0f, 24.0f, 0.0f, -0.1309f, 0.0f, 0.0f));
+		modelPartData.addChild(EntityModelPartNames.LEFT_HIND_FOOT, ModelPartBuilder.create().uv(0, ++uv*128).cuboid(2.0f, -2.0f, 2.0f, 5.0f, 2.0f, 5.0f), ModelTransform.of(0.0f, 24.0f, 0.0f, 0.0f, 0.0f, 0.0f));
+		modelPartData.addChild(EntityModelPartNames.RIGHT_HIND_FOOT, ModelPartBuilder.create().uv(0, ++uv*128).cuboid(-7.0f, -2.0f, -11.0f, 5.0f, 2.0f, 5.0f), ModelTransform.of(0.0f, 24.0f, 0.0f, 0.0f, 0.0f, 0.0f));
+		modelPartData.addChild("LEFTTOE1", ModelPartBuilder.create().uv(0, ++uv*128).cuboid(3.0f, -2.0f, 6.0f, 3.0f, 2.0f, 5.0f), ModelTransform.of(0.0f, 24.0f, 0.0f, 0.0f, 0.0f, 0.0f));
+		modelPartData.addChild("LEFTTOE2", ModelPartBuilder.create().uv(0, ++uv*128).cuboid(6.0f, -2.0f, -5.0f, 2.0f, 2.0f, 8.0f), ModelTransform.of(0.0f, 24.0f, 0.0f, 0.0f, -0.2618f, 0.0f));
+		modelPartData.addChild("LEFTTOE3", ModelPartBuilder.create().uv(0, ++uv*128).cuboid(3.0f, -2.0f, -5.0f, 3.0f, 2.0f, 7.0f), ModelTransform.of(0.0f, 24.0f, 0.0f, 0.0f, 0.0f, 0.0f));
+		modelPartData.addChild("LEFTTOE4", ModelPartBuilder.create().uv(0, ++uv*128).cuboid(1.0f, -2.0f, -2.0f, 2.0f, 2.0f, 8.0f), ModelTransform.of(0.0f, 24.0f, 0.0f, 0.0f, 0.3491f, 0.0f));
+		modelPartData.addChild("RIGHTTOE1", ModelPartBuilder.create().uv(0, ++uv*128).cuboid(-6.0f, -2.0f, -7.0f, 3.0f, 2.0f, 5.0f), ModelTransform.of(0.0f, 24.0f, 0.0f, 0.0f, 0.0f, 0.0f));
+		modelPartData.addChild("RIGHTTOE2", ModelPartBuilder.create().uv(0, ++uv*128).cuboid(-6.0f, -2.0f, -15.0f, 2.0f, 2.0f, 8.0f), ModelTransform.of(0.0f, 24.0f, 0.0f, 0.0f, -0.2618f, 0.0f));
+		modelPartData.addChild("RIGHTTOE3", ModelPartBuilder.create().uv(0, ++uv*128).cuboid(-6.0f, -2.0f, -17.0f, 3.0f, 2.0f, 7.0f), ModelTransform.of(0.0f, 24.0f, 0.0f, 0.0f, 0.0f, 0.0f));
+		modelPartData.addChild("RIGHTTOE4", ModelPartBuilder.create().uv(0, ++uv*128).cuboid(-4.0f, -2.0f, -17.0f, 2.0f, 2.0f, 8.0f), ModelTransform.of(0.0f, 24.0f, 0.0f, 0.0f, 0.3491f, 0.0f));
+
+		return TexturedModelData.of(modelData, 2668, 2668);
+		
+	}
+
 
 	@Override
-	public void setAngles(Entity entity, float limbSwing, float limbSwingAmount, float ageInTicks, float netHeadYaw, float headPitch)
-	{
-			//previously the render function, render code was moved to a method below
-	}
-
-	@Override
-	public void render(MatrixStack matrixStack, VertexConsumer	buffer, int packedLight, int packedOverlay, float red, float green, float blue, float alpha)
-	{
-			
-			root.render(matrixStack, buffer, packedLight, packedOverlay);
-
-	}
-	public void setRotationAngle(ModelPart bone, float x, float y, float z)
+    public void setAngles(BigBird bigbird, float limbAngle, float limbDistance, float animationProgress, float headYaw, float headPitch)
 	{
 
-			bone.pitch = x;
-			bone.yaw = y;
-			bone.roll = z;
+    }
+ 
+    @Override
+    public void render(MatrixStack matrices, VertexConsumer vertices, int light, int overlay, float red, float green, float blue, float alpha)
+	{
 
-	}
+        ImmutableList.of(this.root).forEach((modelRenderer) ->
+		{
+
+            modelRenderer.render(matrices, vertices, light, overlay, red, green, blue, alpha);
+
+        });
+
+    }
+
 	
 }
